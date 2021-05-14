@@ -99,7 +99,7 @@ function _add_cut(
         # round down to 0
         if πᵏ[key] < 10^-8
             πᵏ[key] = 0
-        end if
+        end
 
         θᵏ -= πᵏ[key] * xᵏ[key]
     end
