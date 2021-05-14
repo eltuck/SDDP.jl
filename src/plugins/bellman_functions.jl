@@ -91,9 +91,19 @@ function _add_cut(
     belief_y::Union{Nothing,Dict{T,Float64}};
     cut_selection::Bool = true,
 ) where {N,T}
+
+
     for (key, x) in xᵏ
+
+        # <-- ELT added (10^-13 wasn't defined as 0)
+        # round down to 0
+        if πᵏ[key] < 10^-8
+            πᵏ[key] = 0
+        end if
+
         θᵏ -= πᵏ[key] * xᵏ[key]
     end
+
     _dynamic_range_warning(θᵏ, πᵏ)
     cut = Cut(θᵏ, πᵏ, obj_y, belief_y, 1, nothing)
     add_cut_constraint_to_model(V, cut)
