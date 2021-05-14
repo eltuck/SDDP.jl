@@ -152,7 +152,7 @@ mutable struct SDDiP <: AbstractIntegralityHandler
     atol::Float64
     rtol::Float64
 
-    function SDDiP(; iteration_limit::Int = 10000, atol::Float64 = 1e-8, rtol::Float64 = 1e-8)
+    function SDDiP(; iteration_limit::Int = 1000000, atol::Float64 = 1e-8, rtol::Float64 = 1e-8)
         integrality_handler = new()
         integrality_handler.iteration_limit = iteration_limit
         integrality_handler.atol = atol
