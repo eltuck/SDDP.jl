@@ -97,7 +97,7 @@ function _add_cut(
 
         # <-- ELT added (10^-13 wasn't defined as 0)
         # round down to 0
-        if πᵏ[key] < 10^-8
+        if abs(πᵏ[key]) < 10^-8
             πᵏ[key] = 0
         end
 
